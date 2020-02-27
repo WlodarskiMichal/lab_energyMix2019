@@ -1,7 +1,7 @@
 <template lang="html">
-<GChart class="PieChart"
-  type="PieChart"
-  :data="energyMix"
+<GChart class="lineChart"
+  type="LineChart"
+  :data="solarPlot"
   :options="chartOptions"
 />
 </template>
@@ -15,12 +15,11 @@ export default {
   components: {
     GChart
   },
-  props:['energyMix'],
+  props:['solarPlot'],
   data(){
     return{
       chartOptions:{
-        title: 'Energy Mix For United Kingdom',
-        is3D: true,
+        title: 'Percentage of solar power for UK 2019',
       }
     }
   }
@@ -28,8 +27,8 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.PieChart{
-width:1100px;
+.lineChart{
+width:2100px;
 height:1000px;
 
 }
