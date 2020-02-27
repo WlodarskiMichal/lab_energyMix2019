@@ -1,12 +1,13 @@
 <template>
   <div id="app">
     <h1>Energy Mix For United Kingdom</h1>
+    <energy-chart :energyMix="energyMix"></energy-chart>
   </div>
 </template>
 
 <script>
 
-
+import EnergyChart from './components/EnergyChart.vue'
 export default {
   name: 'app',
   data(){
@@ -26,19 +27,16 @@ export default {
 
       })
       energyMix.unshift(["Fuel", "Percentage"])
-      console.log(energyMix);
+      return energyMix
     }
-  }}
+  },
+  components:{
+    "energy-chart": EnergyChart
+  }
+}
 
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
