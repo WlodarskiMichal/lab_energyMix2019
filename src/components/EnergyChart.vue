@@ -18,7 +18,8 @@ export default {
   data(){
     return{
       chartOptions:{
-        title: 'Energy Mix For United Kingdom'
+        title: 'Energy Mix For United Kingdom',
+        is3D: true,
       }
     }
   }
@@ -29,5 +30,6 @@ export default {
 .PieChart{
 width:1100px;
 height:1000px;
+
 }
 </style>
