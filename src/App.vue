@@ -1,19 +1,35 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Energy Mix For United Kingdom</h1>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: 'app',
+  data(){
+    return{
+    energyMix:[]
+  }},
+  mounted(){
+    fetch("https://api.carbonintensity.org.uk/generation")
+    .then(response => response.json())
+    .then(data => this.energyMix = this.formatEnergyMix(data))
+  },
+  methods: {
+    formatEnergyMix(data){
+      const mixes = data.data.generationmix;
+      const energyMix = mixes.map(mix => {
+        return [mix.fuel , mix.perc]
+
+      })
+      energyMix.unshift(["Fuel", "Percentage"])
+      console.log(energyMix);
+    }
+  }}
+
 </script>
 
 <style>
